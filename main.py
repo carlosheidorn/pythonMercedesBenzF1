@@ -26,7 +26,7 @@ mycursor.execute("SELECT B.PAIS PAIS, COUNT(*) TOTAL \
             FROM world.veic AS A, world.cod_pais AS B \
             WHERE A.CodPais = B.COD  AND A.DTFLI LIKE '19%' \
             GROUP BY B.PAIS \
-            ORDER BY 2 DESC")
+            ORDER BY 2 DESC LIMIT 10")
 
 myresult = mycursor.fetchall()
 
@@ -39,8 +39,8 @@ for i in myresult:
 print("Pais = ", Pais)
 print("Total = ", Total)
 
-plt.bar(Pais, Total)
-plt.ylim(0, 20000)
+plt.stem(Pais, Total)
+plt.ylim(0, 15000)
 plt.xlabel("Pais")
 plt.ylabel("Total")
 plt.title("Total Fabricação por Pais")
@@ -53,7 +53,7 @@ mycursor.execute("SELECT Denominação, (COUNT(*) / \
                    FROM world.veic \
                    WHERE DTLCO <> '0' \
                    GROUP BY Denominação \
-                   ORDER BY 2 DESC")
+                   ORDER BY 2 DESC LIMIT 5")
 
 myresult = mycursor.fetchall()
 
