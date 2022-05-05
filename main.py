@@ -43,7 +43,7 @@ plt.stem(Pais, Total)
 plt.ylim(0, 15000)
 plt.xlabel("Pais")
 plt.ylabel("Total")
-plt.title("Total Fabricação por Pais")
+plt.title("Total Fabricação por Pais dos 10 maiores Paises")
 plt.show()
 
 print('')
@@ -53,7 +53,7 @@ mycursor.execute("SELECT Denominação, (COUNT(*) / \
                    FROM world.veic \
                    WHERE DTLCO <> '0' \
                    GROUP BY Denominação \
-                   ORDER BY 2 DESC LIMIT 5")
+                   ORDER BY 2 DESC LIMIT 5 ")
 
 myresult = mycursor.fetchall()
 
@@ -70,7 +70,7 @@ plt.bar(Denominacao, Percentual)
 plt.ylim(0, 100)
 plt.xlabel("Denominação")
 plt.ylabel("Percentual")
-plt.title("Percentual por Denominação")
+plt.title("Percentual por Denominação das 5 maiores denominações")
 plt.show()
 
 print('')
