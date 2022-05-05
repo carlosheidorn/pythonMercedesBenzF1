@@ -57,20 +57,20 @@ mycursor.execute("SELECT Denominação, (COUNT(*) / \
 
 myresult = mycursor.fetchall()
 
-Tipo = []
+Denominacao = []
 Percentual = []
 for i in myresult:
-    Tipo.append(i[0])
+    Denominacao.append(i[0])
     Percentual.append(i[1])
 
-print("Tipo Veiculo = ", Tipo)
+print("Denominação = ", Denominacao)
 print("Percentual = ", Percentual)
 
-plt.bar(Tipo, Percentual)
+plt.bar(Denominacao, Percentual)
 plt.ylim(0, 100)
-plt.xlabel("Tipo Veículo")
+plt.xlabel("Denominação")
 plt.ylabel("Percentual")
-plt.title("Percentual por Veículo")
+plt.title("Percentual por Denominação")
 plt.show()
 
 print('')
